@@ -466,7 +466,14 @@ plot(ldc,
 ![image](https://github.com/user-attachments/assets/9b2e0450-9dd3-4494-968e-478d2161e923)
 
 ## Conclusions
-This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
+1. Which groups of countries are similar in their gender equality?
+A large group of developed nations, primarily from Western Europe and North America, consistently clustered together across different community detection methods. This suggests a strong similarity in gender equality measures among economically advanced countries. Eastern European and Central Asian countries often formed a separate community, indicating a distinct gender equality landscape in transitional economies. Middle Eastern and North African nations frequently grouped together, pointing to shared challenges or cultural factors influencing gender equality in this region.Some unexpected groupings emerged, such as the cluster containing Lao PDR, Moldova, and West Bank and Gaza, which may represent countries with unique gender equality profiles that warrant further investigation.
+
+2. Which countries offer gender equality in their economic opportunities, which more and which less?
+Countries like Sweden, Hungary, the United States, Ireland, and Bulgaria showed high eigenvector centrality, suggesting they are central to clusters of nations with similar, likely advanced, gender equality profiles. The presence of countries like Lao PDR, Moldova, and West Bank and Gaza in the top closeness centrality measures indicates that these nations may represent either median cases or interesting outliers in gender equality metrics. Afghanistan consistently appeared as an outlier, often forming its own single-country community, indicating significant challenges in gender equality.
+
+3. How do these clusters relate to education attainment?
+There is no clear one-to-one correspondence between the communities identified based on economic gender equality metrics and the clusters formed based on the Educational Attainment Gender Parity Index (EAGPI). However, the visualization of EAGPI data on the network graph shows that countries with higher EAGPI values (represented by larger node sizes) tend to be more centrally located in the network, suggesting a positive relationship between educational gender parity and overall gender equality in economic opportunities. The diversity of EAGPI values within communities indicates that countries with similar economic gender equality profiles may still have varying levels of educational gender parity.
 
 ## References
 * Igraph reference.  https://cran.r-project.org/web/packages/igraph/vignettes/igraph.html
