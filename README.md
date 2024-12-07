@@ -245,6 +245,7 @@ This suggests that there are some countries that stand out as leaders or central
 ### Community Characteristics
 
 #### Community by Edge Betweenness
+```
 IGRAPH clustering edge betweenness, groups: 10, mod: 0.41
 + groups:
   $`1`
@@ -260,6 +261,7 @@ IGRAPH clustering edge betweenness, groups: 10, mod: 0.41
   + ... omitted several groups/vertices
  [1]  1  2  3  4  2  5  6  7  3  2  7  7  6  2  2  2  2  2  2  6  2  3  2  8  3  4  3  2  6  7  9 10  2
 [34]  3  5  2  9  2  3  3  2  4  6  3  3  8  3  7  3  3  3  7  3  3  7  8  8  3  8  2  4
+```
 
 * Largest Community (Red): This group contains 22 countries, including the United States, Canada, and several European nations. It likely represents developed countries with relatively high gender equality scores across various metrics.
 * Second Largest Community (Green): Comprising 16 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with similar transitional economies and evolving gender equality landscapes.
@@ -269,6 +271,7 @@ IGRAPH clustering edge betweenness, groups: 10, mod: 0.41
 There's a noticeable tendency for countries from similar geographic regions to cluster together, suggesting regional similarities in gender equality progress. The largest community seems to consist of highly developed nations, indicating a correlation between economic opportunities and the gender equality metric. The blue community's composition suggests that cultural and religious factors may play a role in shaping gender equality profiles in some regions.
 
 #### Community by Label Prop
+```
 IGRAPH clustering label propagation, groups: 7, mod: 0.42
 + groups:
   $`1`
@@ -284,6 +287,7 @@ IGRAPH clustering label propagation, groups: 7, mod: 0.42
   + ... omitted several groups/vertices
  [1] 1 2 3 4 2 5 5 5 3 2 3 3 5 2 2 2 2 2 2 5 2 3 2 5 3 4 3 2 5 3 6 2 2 2 5 2 6 2 3 3 2 4 5 3 3 7 3 3 3 3
 [51] 3 3 3 3 3 7 7 3 7 2 4
+```
 
 * Largest Community (Green): This group contains 25 countries, including many European nations, the United States, and Canada. It likely represents developed countries with high gender equality scores and similar socio-economic conditions.
 * Second Largest Community (Blue): Comprising 19 countries, this group includes several Eastern European, Central Asian, and Middle Eastern nations. It may represent countries with transitional economies and evolving gender equality landscapes.
@@ -293,6 +297,7 @@ Compared to the edge betweenness method, this algorithm produced fewer, larger c
 The green community appears to group highly developed nations, indicating a strong correlation between economic opportunities and gender equality metric, while the blue and yellow communities seem to represent countries at different stages of the gender equality progress.
 
 #### Community by Leiden
+```
 "resolution"
        25% 
 0.03566667 
@@ -311,6 +316,7 @@ IGRAPH clustering leiden, groups: 8, mod: NA
   + ... omitted several groups/vertices
  [1] 1 2 2 3 2 4 4 4 2 2 2 2 4 2 2 2 2 2 2 4 5 2 5 6 2 3 2 2 4 2 7 5 2 2 4 2 7 2 2 2 2 3 4 2 2 8 2 2 2 2
 [51] 2 2 2 2 2 8 8 2 8 2 3
+```
 
 * Largest Community (Green): This group contains 18 countries, primarily consisting of Western European nations, the United States, and Canada. It likely represents highly developed countries with strong gender equality measures.
 * Second Largest Community (Yellow): Comprising 14 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with transitional economies and evolving gender equality landscapes.
@@ -324,7 +330,7 @@ The Leiden algorithm has produced more nuanced communities compared to the previ
 
 We clustered countries using the overall EAGPI in Orange using k-Means. We obtained a list of countries assigned to clusters. Countries in clusters are different based on EAGPI value.
 
-> print(names(education))
+print(names(education))
 [1] "Country Name"  "Cluster"       "Silhouette"    "EAGPI_overall"
 
 ```
@@ -395,19 +401,19 @@ merged
 57               Viet Nam              2                C1                    0.81
 58     West Bank and Gaza              3                C2                    1.12
 
-> print("How many clusters")
+print("How many clusters")
 [1] "How many clusters"
-> print(unique(merged$education.Cluster) )
+print(unique(merged$education.Cluster) )
 [1] "C3" "C2" "C4" "C1" "C5"
 
-> print("How many communities")
+print("How many communities")
 [1] "How many communities"
-> print(unique(merged$ldc.membership) )
+print(unique(merged$ldc.membership) )
 [1] 1 2 3 4 5 6 7 8
 
 **Not possible to clearly associate education cluster with the community.**
 
-> table(merged$education.Cluster,merged$ldc.membership)
+table(merged$education.Cluster,merged$ldc.membership)
     
       1  2  3  4  5  6  7  8
   C1  0  3  0  1  0  1  1  2
