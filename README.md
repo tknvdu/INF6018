@@ -82,13 +82,6 @@ Using both labor force participation and employment indicators captures differen
 2. Employment indicators provide information on the actual success in securing employment and the quality of labor market outcomes.
 
 ### Gender Parity Index (GPI) for Education
-
-```math
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-```
-
-**Gender Parity Index (GPI) for Education**
-
 ```math
 $$EAGPI_{secondary} = {\text{Female Secondary Attainment (\%)} \over \text{Male Secondary Attainment (\%)}}$$
 $$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (\%)} \over \text{Male Postsecondary Attainment (\%)}}$$
@@ -133,24 +126,17 @@ for i in range(len(df_columns)):
             fout.write(f"{nodes_dict[country1]} {nodes_dict[country2]} {weight:.4f}\n")
 ```
 
-Benefits of This Approach
-* Density Representation: Countries with very similar EOGEI values will have edge weights closer to 1, representing a denser connection.
-* Continuous Scale: Instead of discrete categories, this approach provides a continuous scale of relationships between countries.
-* Flexibility: By adjusting the max_diff value, you can control how liberally countries are connected while maintaining the principle that closer EOGEI values result in stronger connections.
-* Interpretability: The weight directly represents how similar two countries are in terms of their EOGEI values. A weight of 0.9, for example, indicates a very strong similarity, while a weight of 0.1 suggests the countries are at the edge of being considered connected at all.
+By using this approach countries with very similar EOGEI values will have edge weights closer to 1, representing a denser or stronger connection and instead of discrete categories, this provides a continuous scale of relationships between countries. So, the weight directly represents how similar two countries are in terms of their EOGEI values. A weight of 0.9, for example, indicates a very strong similarity, while a weight of 0.1 suggests the countries are at the edge of being considered connected at all.
 
-This weighting system better reflects the idea that countries with similar EOGEI values should be more densely connected in the network, providing a more intuitive and meaningful representation of the relationships between countries based on their gender equality in economic opportunities.
-
-Implications for Analysis
-Identifying Leaders and Laggards: Countries above 107 can be easily identified as leaders in gender equality, while those below 93 are lagging behind.
-Transition Analysis: Countries near the thresholds (close to 93 or 107) may be of particular interest, as they represent transitional states in gender equality progress.
-Regional Comparisons: The network structure allows for easy identification of regions or groups of countries with similar gender equality levels.
-Policy Implications: Policymakers can use this network to identify countries with similar EOGEI values for potential collaboration or benchmarking in gender equality initiatives.
+**Implications**
+* Countries above 107 can be easily identified as leaders in gender equality, while those below 93 are lagging behind.
+* Countries within the thresholds are of particular interest, as they represent transitional states in gender equality progress.
+* Identify regions or groups of countries with similar gender equality levels more easily.
 
 ## Results
 
-#### Network Parameters of Node Centrality
-Excerpt from RStudio Console
+### Network Parameters of Node Centrality
+Excerpt from RStudio Console:
 ```
 > top_nodes_degree
   Bulgaria Luxembourg  Australia    Denmark      Malta 
@@ -175,7 +161,7 @@ The top countries by degree centrality are:
 * Australia
 * Denmark
 * Malta
-These countries have the highest number of connections (edges) to other countries in the network, indicating that they have similar gender equality metrics to many other nations. This suggests that these countries may represent "average" or "typical" cases in terms of gender equality measures across the studied regions.
+These countries have the highest number of connections/edges to other countries in the network, indicating that they have similar gender equality metrics to many other nations. This suggests that these countries may represent "average" or "typical" cases in terms of gender equality measures across countries.
 
 ### Betweenness Centrality
 The top countries by betweenness centrality are:
@@ -184,7 +170,7 @@ The top countries by betweenness centrality are:
 * Slovenia
 * India
 * Croatia
-These countries act as important bridges or connectors in the network. They likely represent transitional states between different clusters of countries with varying levels of gender equality. Their position suggests they may play crucial roles in understanding how gender equality metrics transition between different groups of countries.
+These countries act as important bridges or connectors in the network. They likely represent transitional states between different clusters of countries with varying levels of gender equality. Their position suggests they may be important in understanding how gender equality metrics transition between different groups of countries.
 
 ### Closeness Centrality
 The top countries by closeness centrality are:
@@ -193,7 +179,7 @@ The top countries by closeness centrality are:
 * West Bank and Gaza
 * Bahrain
 * Iran, Islamic Rep.
-These countries are, on average, closest to all other countries in the network in terms of their gender equality metrics. This suggests that they may represent either "median" or "extreme" cases in the study, potentially offering insights into the typical gender equality situations in their diverse regions.
+These countries are, on average, closest to all other countries in the network in terms of their gender equality metrics. This suggests that they may represent either "median" or "outlier" cases in the study, potentially offering insights into the typical gender equality situations in their diverse regions.
 
 ### Eigenvector Centrality
 The top countries by eigenvector centrality are:
@@ -202,14 +188,86 @@ The top countries by eigenvector centrality are:
 * United States
 * Ireland
 * Bulgaria
-These countries are not only well-connected themselves but are also connected to other highly connected countries. This suggests that they are central to clusters of nations with similar gender equality profiles, potentially representing leaders or exemplars within their respective regions or development categories.
+These countries are not only well-connected themselves but are also connected to other highly connected countries. This suggests that they are central to clusters of nations with similar gender equality profiles, potentially representing leaders within their respective regions or development categories.
 
 **Interpretation and Implications**
 * The appearance of countries from various regions (Europe, Asia, Middle East, North America) across different centrality measures highlights the complex and diverse nature of gender equality issues globally.
 * Some unexpected countries appear as central in different measures (e.g., Lao PDR in closeness centrality), which may indicate unique or transitional positions in gender equality metrics for further investigation.
 * Countries with high betweenness centrality (like Czechia and Bosnia and Herzegovina) might be particularly interesting for policymakers as they could represent transitional states in gender equality progress.
-* The presence of both highly developed (e.g., United States, Sweden) and developing countries (e.g., India, Lao PDR) in various centrality measures suggests that the relationship between economic development and gender equality is quite complex and not necessarily linear.
-* Countries like Sweden and the United States, with high eigenvector centrality, might be seen as regional or global leaders in gender equality metrics, potentially offering best practices for others to follow.
+* The presence of both highly developed (e.g., United States, Sweden) and developing countries (e.g., India, Lao PDR) in various centrality measures suggests that the relationship between economic opportunities and gender equality is more complex and not necessarily linear.
+
+### Centralization Scores
+Excerpt from RStudio Console:
+```
+> network_centr_degree
+[1] 0.236612
+> network_centr_betw
+[1] 0.113491
+> network_centr_clo
+[1] NaN
+> network_centr_eigen
+[1] 0.5547316
+```
+
+### Degree Centralization: 0.236612
+* A decentralized structure in terms of connections (no domination from a country/countries in the network connection-wise)
+* Similarity in the gender equality metric is more or less evenly distributed across countries
+The relatively low score indicates that gender equality is relatively diverse across the countries.
+
+### Betweenness Centralization: 0.113491
+* Multiple countries serve as bridges between different parts of the network.
+* The network doesn't rely on a few key countries to connect different clusters.
+The low score suggests that there are multiple pathways of similarity or transition between different groups of countries. Various countries play intermediary roles in connecting different levels or types of gender equality profiles.
+
+### Closeness Centralization: NaN
+* A disconnected component in the network (there are vertices that cannot reach all other vertices in the network)
+It could indicate a methodological issue or maybe a unique network structure.
+
+Identify the reason for NaN value 
+```
+> nan_vertices <- which(is.nan(closeness_cent))
+> nan_vertices
+Afghanistan 
+          1 
+```
+
+### Eigenvector Centralization: 0.5547316
+* There is a hierarchy in the network.
+* Some countries are more central (connected to other well-connected countries) than others.
+This suggests that there are some countries that stand out as leaders or central figures in gender equality metrics. These countries are not only similar to many others but are also similar to other influential countries. This could represent a core group of nations that are at the forefront of gender equality measures or economic opportunities related to gender issues.
+
+**Interpretation and Implications**
+* The low degree and betweenness centralization values suggest a diverse landscape of gender equality profiles across countries, without dominant central players.
+* There are likely multiple countries influencing or bridging different aspects of gender equality and development, rather than a few dominant influencers.
+* The higher eigenvector centralization value suggests a possible core-periphery structure, where some countries form a central, interconnected group in terms of gender equality measures.
+* The closeness centralization score warrants further investigation. It might indicate a unique network structure or potentially a methodological consideration in how similarities between countries are measured.
+
+### Community Characteristics
+
+#### Community by Edge Betweenness
+* Largest Community (Red): This group contains 22 countries, including the United States, Canada, and several European nations. It likely represents developed countries with relatively high gender equality scores across various metrics.
+* Second Largest Community (Green): Comprising 16 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with similar transitional economies and evolving gender equality landscapes.
+* Third Community (Blue): With 12 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural and economic backgrounds that face unique challenges in gender equality.
+* Fourth Community (Yellow): Consisting of 8 countries, this smaller group includes nations like India and Indonesia. It might represent large, developing countries with diverse populations and complex gender equality issues.
+* Smallest Community (Purple): This group of 3 countries (Lao PDR, Moldova, and West Bank and Gaza) may represent nations with unique gender equality profiles that don't fit neatly into the other categories.
+There's a noticeable tendency for countries from similar geographic regions to cluster together, suggesting regional similarities in gender equality progress. The largest community seems to consist of highly developed nations, indicating a correlation between economic opportunities and the gender equality metric. The blue community's composition suggests that cultural and religious factors may play a role in shaping gender equality profiles in some regions.
+
+#### Community by Label Prop
+* Largest Community (Green): This group contains 25 countries, including many European nations, the United States, and Canada. It likely represents developed countries with high gender equality scores and similar socio-economic conditions.
+* Second Largest Community (Blue): Comprising 19 countries, this group includes several Eastern European, Central Asian, and Middle Eastern nations. It may represent countries with transitional economies and evolving gender equality landscapes.
+* Third Community (Yellow): With 9 countries, this group includes nations like India, Indonesia, and some North African countries. It potentially represents large, developing countries with diverse populations and complex gender equality issues.
+* Smallest Community (Red): Consisting of 8 countries, including some from the Middle East and North Africa. This group might represent nations with unique challenges in gender equality, possibly due to cultural or economic factors.
+Compared to the edge betweenness method, this algorithm produced fewer, larger communities, suggesting more overarching similarities in gender equality patterns.
+The green community appears to group highly developed nations, indicating a strong correlation between economic opportunities and gender equality metric, while the blue and yellow communities seem to represent countries at different stages of the gender equality progress.
+
+#### Community by Leiden
+* Largest Community (Green): This group contains 18 countries, primarily consisting of Western European nations, the United States, and Canada. It likely represents highly developed countries with strong gender equality measures.
+* Second Largest Community (Yellow): Comprising 14 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with transitional economies and evolving gender equality landscapes.
+* Third Community (Blue): With 11 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural backgrounds facing unique challenges in gender equality.
+* Fourth Community (Purple): Consisting of 9 countries, including some Scandinavian and Baltic states. This group might represent nations with particularly advanced gender equality policies.
+* Fifth Community (Orange): A smaller group of 5 countries, including India and Indonesia. It might represent large, developing countries with diverse populations and complex gender equality issues.
+* Smallest Community (Red): This group of 4 countries includes nations like Lao PDR and Moldova. It may represent countries with unique gender equality profiles that don't fit neatly into other categories.
+The Leiden algorithm has produced more nuanced communities compared to the previous methods, suggesting finer distinctions in gender equality patterns. The green and purple communities seem to represent different levels of advanced gender equality, possibly distinguishing between established and cutting-edge approaches. There's also a noticeable regional clustering, particularly in the yellow and blue communities, indicating strong regional factors in gender equality progress.
 
 ## Conclusions
 This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
@@ -222,3 +280,4 @@ This is where you present the answers to the the question that you have raised a
   * https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-male--cumulative
   * https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-female
   * https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-male
+* https://toreopsahl.com/2010/03/20/closeness-centrality-in-networks-with-disconnected-components/
