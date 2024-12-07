@@ -1,14 +1,14 @@
-# INF6018 Project - Gender Equality, Education, and Economic Development - A Global Network Analysis
+# INF6018 Project - Gender Equality, Education, and Economic Opportunities - A Global Network Analysis
 
 ## Introduction 
-This project aims to analyze the relationships between gender equality, education, and economic opportunities/development across countries in Europe, Asia, Middle East, North Africa and North America. The study will focus on 61 countries, examining a specific gender equality metric and their correlation with economic development as well as education.
-The gender statistic data used is from the year 2022. The nodes are countries in which the gender statistics for Educational Attainment, Labor For Participation, (Un-)Employment Rates is available in the year 2022. The edges connect countries between their similiarity in the chosen gender equality metric. Additionally, data on each country is used to showing the economic development as well as the educational attainment after the threshold at least completed lower-secondary. 
+This project aims to analyze the relationships between gender equality, education, and economic opportunities/development across countries in Europe, Asia, Middle East, North Africa and North America. The study will focus on 61 countries, examining a specific gender equality metric and their correlation with education.
+The gender statistic data used is from the year 2022. The nodes are countries in which the gender statistics for Educational Attainment, Labor For Participation, (Un-)Employment Rates is available in the year 2022. The edges connect countries between their similiarity in the chosen gender equality metric. Additionally, data on each country is used to show the educational attainment after the threshold at least completed lower-secondary. 
 
 **Research Questions:**
 
 1. Which groups of countries are similiar in their gender equality?
 2. Which countries offer gender equality in their economic opportunities, which more and which less?
-3. How do these clusters relate to overall economic development and does education play a role?
+3. How do these clusters relate education attainment?
 
 ## Methodology
 
@@ -429,6 +429,41 @@ table(merged$education.Cluster,merged$ldc.membership)
   C4  0 17  0  4  0  0  0  1
   C5  0  0  1  0  0  0  0  1
 ```
+
+### Map education information on the network
+```
+# Map color onto the vertices
+clusters<-merged$education.Cluster 
+names(clusters) <- merged$ldc.names
+#print(clusters)
+cluster_colors<-c("red","darkgreen","blue","magenta","brown","cyan")
+names(cluster_colors)<-c("C1","C2","C3","C4","C5",NA)
+
+# Map size onto the vertices
+EAGPI<-as.double(merged$education.EAGPI_overall)
+names(EAGPI)<-merged$ldc.names
+
+V(network)$label.cex <- 0.7
+
+plot(network,
+     layout = layout.graphopt,
+     vertex.color = cluster_colors[clusters[V(network)]], 
+     vertex.size = rep(EAGPI, length.out = vcount(network)) * 3.5)
+```
+
+![image](https://github.com/user-attachments/assets/4a000f57-01f7-442a-87b3-4aa437890057)
+
+
+#### Add the community information, and education cluster information
+```
+plot(ldc,
+     network,
+     layout = layout.graphopt,
+     vertex.label.color = cluster_colors[clusters[V(network)]],
+     vertex.size = rep(EAGPI, length.out = vcount(network)) * 3.5)
+```
+
+![image](https://github.com/user-attachments/assets/9b2e0450-9dd3-4494-968e-478d2161e923)
 
 ## Conclusions
 This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
