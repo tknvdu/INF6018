@@ -1,0 +1,62 @@
+CountryName,Cluster,Silhouette,EAGPI_overall
+Afghanistan,C3,0.5,0.31
+Australia,C2,0.615993,1.12
+Azerbaijan,C4,0.590018,0.93
+Bahrain,C2,0.686968,1.26
+Belgium,C4,0.677421,1.05
+Bhutan,C1,0.541491,0.9
+Bosnia and Herzegovina,C4,0.627393,0.94
+Brunei Darussalam,C2,0.663411,1.14
+Bulgaria,C2,0.697868,1.23
+Canada,C4,0.677421,1.05
+Croatia,C2,0.575858,1.11
+Cyprus,C4,0.700281,1.03
+Czechia,C4,0.715419,1
+Denmark,C2,0.697868,1.23
+Estonia,C2,0.659001,1.32
+Finland,C2,0.676889,1.15
+France,C4,0.71322,1.01
+Georgia,C4,0.629779,1.07
+Germany,C1,0.640299,0.87
+Greece,C4,0.689062,0.97
+Hong Kong SAR, China,C1,0.687654,0.83
+Hungary,C4,0.629779,1.07
+Iceland,C2,0.686968,1.26
+India,C1,0.650561,0.66
+Indonesia,C4,0.71322,1.01
+Iran, Islamic Rep.,C1,0.541491,0.9
+Ireland,C4,0.629779,1.07
+Israel,C2,0.643359,1.13
+Italy,C2,0.676889,1.15
+Korea, Rep.,C1,0.690733,0.8
+Lao PDR,C1,0.6602,0.69
+Latvia,C2,0.686968,1.26
+Lithuania,C2,0.690801,1.17
+Luxembourg,C4,0.627393,0.94
+Malaysia,C4,0.710351,0.99
+Malta,C4,0.710351,0.99
+Moldova,C2,0.663411,1.14
+Mongolia,C2,0.6992,1.19
+Netherlands,C4,0.673687,0.96
+North Macedonia,C4,0.715419,1
+Norway,C2,0.700624,1.21
+Oman,C5,0.592117,1.54
+Philippines,C2,0.6992,1.19
+Poland,C2,0.699596,1.22
+Portugal,C2,0.697868,1.23
+Qatar,C5,0.669069,1.79
+Romania,C4,0.71322,1.01
+Serbia,C4,0.710351,0.99
+Singapore,C4,0.690639,1.04
+Slovak Republic,C2,0.676889,1.15
+Slovenia,C2,0.700854,1.2
+Spain,C2,0.575858,1.11
+Sweden,C2,0.700854,1.2
+Switzerland,C1,0.687654,0.83
+Thailand,C2,0.575858,1.11
+Turkiye,C1,0.692728,0.81
+United Arab Emirates,C4,0.715419,1
+United States,C4,0.657401,1.06
+Uzbekistan,C1,0.657878,0.86
+Viet Nam,C1,0.692728,0.81
+West Bank and Gaza,C2,0.615993,1.12
