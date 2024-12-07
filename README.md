@@ -62,23 +62,21 @@ Compare countries based on the strength and direction of these relationships
 ### Meaningful Metrics
 To create meaningful metrics, we'll use female-to-male ratios for most indicators to capture relative gender differences
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-
-**Gender Parity Index (GPI) for Education**
+#### Gender Parity Index (GPI) for Education
 
 ```math
 \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
+
 **Gender Parity Index (GPI) for Education**
 
 ```math
-$$GPI_{secondary} = {Female Secondary Attainment \over Male Secondary Attainment}$$
-$$GPI_{postsec} = {Female Postsecondary Attainment \over Male Postsecondary Attainment}$$
-$$GPI_{bachelor} = {Female Bachelor's Attainment \over Male Bachelor's Attainment}$$
+$$EAGPI_{secondary} = {{Female Secondary Attainment} \over {Male Secondary Attainment}}$$
+$$EAGPI_{postsec} = {{Female Postsecondary Attainment} \over {Male Postsecondary Attainment}}$$
+$$EAGPI_{bachelor} = {{Female Bachelor's Attainment} \over {Male Bachelor's Attainment}$$
 ```
 
-Interpretation
+**Interpretation**
 * GPI = 1: Perfect gender parity
 * GPI < 1: Disparity in favor of males
 * GPI > 1: Disparity in favor of females
@@ -86,6 +84,13 @@ To check for gender equality, we use these thresholds:
 * 0.97 ≤ GPI ≤ 1.03: Gender parity achieved
 * GPI < 0.97: Disparity favoring males
 * GPI > 1.03: Disparity favoring females
+
+**Overall Educational Attainment GPI**
+To get a more comprehensive view of educational attainment across genders, we calculate an overall Educational Attainment GPI by averaging the three GPIs:
+
+```math
+$$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 2}$$
+```
 
 https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-female--cumulative
 https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-male--cumulative
