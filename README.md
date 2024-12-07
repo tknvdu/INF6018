@@ -73,9 +73,9 @@ $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 **Gender Parity Index (GPI) for Education**
 
 ```math
-GPI_secondary = {Female Secondary Attainment \ Male Secondary Attainment}
-GPI_postsec = {Female Postsecondary Attainment \ Male Postsecondary Attainment}
-GPI_bachelor = {Female Bachelor's Attainment \ Male Bachelor's Attainment}
+$$GPI_{secondary} = {Female Secondary Attainment / Male Secondary Attainment}$$
+$$GPI_{postsec} = {Female Postsecondary Attainment / Male Postsecondary Attainment}$$
+$$GPI_{bachelor} = {Female Bachelor's Attainment / Male Bachelor's Attainment}$$
 ```
 
 Interpretation
