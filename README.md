@@ -1,65 +1,54 @@
-# INF6018
-Project for INF6018
+# INF6018 - Gender Equality, Education, and Economic Development - A Global Network Analysis
 
-## Gender Equality, Education, and Economic Development - A Global Network Analysis
-
-### Introduction 
+## Introduction 
 This project aims to analyze the relationships between gender equality, education, and economic opportunities/development across countries in Europe, Asia, Middle East, North Africa and North America. The study will focus on 61 countries, examining a specific gender equality metric and their correlation with economic development as well as education.
 The gender statistic data used is from the year 2022. The nodes are countries in which the gender statistics for Educational Attainment, Labor For Participation, (Un-)Employment Rates is available in the year 2022. The edges connect countries between their similiarity in the chosen gender equality metric. Additionally, data on each country is used to showing the economic development as well as the educational attainment after the threshold at least completed lower-secondary. 
 
-The questions asked are: 
+**Research Questions:**
 
 1. Which groups of countries are similiar in their gender equality?
-2. Which countries are ?
-3. how length of basic education and size of emigration may be related?
+2. Which countries offer gender equality in their economic opportunities, which more and which less?
+3. How do these clusters relate to overall economic development and does education play a role?
 
-### Research Questions
-1. How does gender equality in education and economic opportunities correlate with each other across different countries?
-2. Are there clusters of countries with similar gender equality profiles, and how do these clusters relate to overall economic development?
-
-### Methodology
-
-#### Data Collection and Preprocessing
-* Source: World Bank Gender Data Portal
-* Time range: 2019-2023
-* Preprocessing steps to handle messy data and ensure proper formatting
-
-#### Network Structure
-* Nodes: 61 Countries
-* Links: Similarity in gender equality metrics
+## Methodology
 
 #### Node Attributes
-* Female to male ratio of labor force participation
-* Female to male ratio of secondary education enrollment
-* Female to male ratio of tertiary education enrollment
-* Gender wage gap
-* Percentage of women in managerial positions
-* Female to male ratio of unemployment rates
-* GDP per capita
-* Gender Inequality Index
-
+    'Labor': [
+        'Ratio of female to male labor force participation rate (%) (modeled ILO estimate)',
+        'Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)',
+        'Labor force participation rate, male (% of male population ages 15+) (modeled ILO estimate)'
+    ],
+    'Employment': [
+        'Employment to population ratio, 15+, female (%) (modeled ILO estimate)',
+        'Employment to population ratio, 15+, male (%) (modeled ILO estimate)',
+        'Unemployment, female (% of female labor force) (modeled ILO estimate)',
+        'Unemployment, male (% of male labor force) (modeled ILO estimate)' 
+    ],
+    'Law': [
+        'Women Business and the Law Index Score (scale 1-100)',
+        'Women, Business and the Law: Pay Indicator Score (scale 1-100)',
+        'Women, Business and the Law: Workplace Indicator Score (scale 1-100)',
+        'Women, Business and the Law: Mobility Indicator Score (scale 1-100)'
+    ],
+    'Education': [
+        'Educational attainment, at least completed upper secondary, population 25+, female (%) (cumulative)',
+        'Educational attainment, at least completed upper secondary, population 25+, male (%) (cumulative)',
+        'Educational attainment, at least completed post-secondary, population 25+, female (%) (cumulative)',
+        'Educational attainment, at least completed post-secondary, population 25+, male (%) (cumulative)',
+        'Educational attainment, at least Bachelor\'s or equivalent, population 25+, female (%) (cumulative)',
+        'Educational attainment, at least Bachelor\'s or equivalent, population 25+, male (%) (cumulative)'
+    ],
+    'Economic': [
+        'GDP per capita (constant 2010 US$)',
+        'GNI per capita, Atlas method (current US$)',
+        'GNI per capita, PPP (current international $)'
+    ]
+    
 ### Similarity Calculation
-* Develop a composite similarity metric using multiple attributes, not just the Gender Inequality Index
-* Incorporate time-based analysis to capture trends over the 2019-2023 period
-* Explore different weighting schemes for attributes to assess their impact on similarity calculations
+* Develop a composite similarity metric using multiple attributes, which estimates the relationship between gender equality in economic opportunities for each country
+* Compare countries based on this metric for the strength of this relationship
 
-### Correlation Analysis
-* Develop metrics to estimate the relationship between gender equality in education and economic opportunities for each country
-* Compare countries based on these relationships
-* Utilize statistical methods to quantify correlations
-
-### Clustering Analysis
-* Apply clustering algorithms to identify groups of countries with similar gender equality profiles
-* Analyze the relationship between these clusters and overall economic development
-
-### Breaking Down the Analysis
-For RQ1, we'll:
-Estimate the relationship of gender equality in economic opportunities for each country individually
-Develop composite metrics for education equality and economic opportunity equality
-Compare countries based on the strength and direction of this relationship
-
-### Meaningful Metrics
-To create meaningful metrics, we'll use female-to-male ratios for most indicators to capture relative gender differences
+To create meaningful metrics, we'll use female-to-male ratios for most indicators to capture relative gender differences:
 
 #### Economic Opportunities Gender Equality Index (EOGEI)
 To create a metric for gender equality in economic opportunities using labor force participation and employment indicators, we can create a composite index:
@@ -122,7 +111,17 @@ To get a more comprehensive view of educational attainment across genders, we ca
 $$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 2}$$
 ```
 
-https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-female--cumulative
-https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-male--cumulative
-https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-female
-https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-male
+## Results
+This is where you summarize the main results of the analysis.
+
+## Conclusions
+This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
+
+## References
+* Igraph reference.  https://cran.r-project.org/web/packages/igraph/vignettes/igraph.html
+* World Bank Databank World Development Indicators: https://databank.worldbank.org/source/gender-statistics
+* CEIC Data:
+  * https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-female--cumulative
+  * https://www.ceicdata.com/en/thailand/education-statistics/th-educational-attainment-at-least-completed-postsecondary-population-25-years-male--cumulative
+  * https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-female
+  * https://www.ceicdata.com/en/uzbekistan/education-statistics/uz-educational-attainment-at-least-completed-postsecondary-population-25-years--cumulative-male
