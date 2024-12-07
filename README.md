@@ -101,7 +101,7 @@ To check for gender equality, we use these thresholds:
 To get a more comprehensive view of educational attainment across genders, we calculate an overall Educational Attainment GPI by averaging the three GPIs:
 
 ```math
-$$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 2}$$
+$$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 3}$$
 ```
 
 ```
@@ -245,6 +245,22 @@ This suggests that there are some countries that stand out as leaders or central
 ### Community Characteristics
 
 #### Community by Edge Betweenness
+IGRAPH clustering edge betweenness, groups: 10, mod: 0.41
++ groups:
+  $`1`
+  [1] "Afghanistan"
+  
+  $`2`
+   [1] "Australia"            "Belgium"              "Canada"               "Denmark"             
+   [5] "Estonia"              "Finland"              "France"               "Georgia"             
+   [9] "Germany"              "Hong Kong SAR, China" "Iceland"              "Israel"              
+  [13] "Lithuania"            "Malta"                "Mongolia"             "Norway"              
+  [17] "Viet Nam"            
+  
+  + ... omitted several groups/vertices
+ [1]  1  2  3  4  2  5  6  7  3  2  7  7  6  2  2  2  2  2  2  6  2  3  2  8  3  4  3  2  6  7  9 10  2
+[34]  3  5  2  9  2  3  3  2  4  6  3  3  8  3  7  3  3  3  7  3  3  7  8  8  3  8  2  4
+
 * Largest Community (Red): This group contains 22 countries, including the United States, Canada, and several European nations. It likely represents developed countries with relatively high gender equality scores across various metrics.
 * Second Largest Community (Green): Comprising 16 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with similar transitional economies and evolving gender equality landscapes.
 * Third Community (Blue): With 12 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural and economic backgrounds that face unique challenges in gender equality.
@@ -253,6 +269,22 @@ This suggests that there are some countries that stand out as leaders or central
 There's a noticeable tendency for countries from similar geographic regions to cluster together, suggesting regional similarities in gender equality progress. The largest community seems to consist of highly developed nations, indicating a correlation between economic opportunities and the gender equality metric. The blue community's composition suggests that cultural and religious factors may play a role in shaping gender equality profiles in some regions.
 
 #### Community by Label Prop
+IGRAPH clustering label propagation, groups: 7, mod: 0.42
++ groups:
+  $`1`
+  [1] "Afghanistan"
+  
+  $`2`
+   [1] "Australia"            "Belgium"              "Canada"               "Denmark"             
+   [5] "Estonia"              "Finland"              "France"               "Georgia"             
+   [9] "Germany"              "Hong Kong SAR, China" "Iceland"              "Israel"              
+  [13] "Latvia"               "Lithuania"            "Luxembourg"           "Malta"               
+  [17] "Mongolia"             "Norway"               "Viet Nam"            
+  
+  + ... omitted several groups/vertices
+ [1] 1 2 3 4 2 5 5 5 3 2 3 3 5 2 2 2 2 2 2 5 2 3 2 5 3 4 3 2 5 3 6 2 2 2 5 2 6 2 3 3 2 4 5 3 3 7 3 3 3 3
+[51] 3 3 3 3 3 7 7 3 7 2 4
+
 * Largest Community (Green): This group contains 25 countries, including many European nations, the United States, and Canada. It likely represents developed countries with high gender equality scores and similar socio-economic conditions.
 * Second Largest Community (Blue): Comprising 19 countries, this group includes several Eastern European, Central Asian, and Middle Eastern nations. It may represent countries with transitional economies and evolving gender equality landscapes.
 * Third Community (Yellow): With 9 countries, this group includes nations like India, Indonesia, and some North African countries. It potentially represents large, developing countries with diverse populations and complex gender equality issues.
@@ -261,6 +293,25 @@ Compared to the edge betweenness method, this algorithm produced fewer, larger c
 The green community appears to group highly developed nations, indicating a strong correlation between economic opportunities and gender equality metric, while the blue and yellow communities seem to represent countries at different stages of the gender equality progress.
 
 #### Community by Leiden
+"resolution"
+       25% 
+0.03566667 
+IGRAPH clustering leiden, groups: 8, mod: NA
++ groups:
+  $`1`
+  [1] "Afghanistan"
+  
+  $`2`
+   [1] "Australia"       "Azerbaijan"      "Belgium"         "Bulgaria"        "Canada"         
+   [6] "Croatia"         "Cyprus"          "Denmark"         "Estonia"         "Finland"        
+  [11] "France"          "Georgia"         "Germany"         "Hungary"         "Indonesia"      
+  [16] "Ireland"         "Israel"          "Korea, Rep."     "Lithuania"       "Luxembourg"     
+  [21] "Malta"           "Mongolia"        "Netherlands"     "North Macedonia" "Norway"         
+  [26] "Poland"          "Portugal"        "Romania"         "Serbia"          "Singapore"      
+  + ... omitted several groups/vertices
+ [1] 1 2 2 3 2 4 4 4 2 2 2 2 4 2 2 2 2 2 2 4 5 2 5 6 2 3 2 2 4 2 7 5 2 2 4 2 7 2 2 2 2 3 4 2 2 8 2 2 2 2
+[51] 2 2 2 2 2 8 8 2 8 2 3
+
 * Largest Community (Green): This group contains 18 countries, primarily consisting of Western European nations, the United States, and Canada. It likely represents highly developed countries with strong gender equality measures.
 * Second Largest Community (Yellow): Comprising 14 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with transitional economies and evolving gender equality landscapes.
 * Third Community (Blue): With 11 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural backgrounds facing unique challenges in gender equality.
@@ -268,6 +319,102 @@ The green community appears to group highly developed nations, indicating a stro
 * Fifth Community (Orange): A smaller group of 5 countries, including India and Indonesia. It might represent large, developing countries with diverse populations and complex gender equality issues.
 * Smallest Community (Red): This group of 4 countries includes nations like Lao PDR and Moldova. It may represent countries with unique gender equality profiles that don't fit neatly into other categories.
 The Leiden algorithm has produced more nuanced communities compared to the previous methods, suggesting finer distinctions in gender equality patterns. The green and purple communities seem to represent different levels of advanced gender equality, possibly distinguishing between established and cutting-edge approaches. There's also a noticeable regional clustering, particularly in the yellow and blue communities, indicating strong regional factors in gender equality progress.
+
+### Node Attributes and Clustering
+
+We clustered countries using the overall EAGPI in Orange using k-Means. We obtained a list of countries assigned to clusters. Countries in clusters are different based on EAGPI value.
+
+> print(names(education))
+[1] "Country Name"  "Cluster"       "Silhouette"    "EAGPI_overall"
+
+```
+edu_clusters<-data.frame(education$CountryName, education$Cluster, education$EAGPI_overall)
+community_ids<-data.frame(ldc$names, ldc$membership)
+
+merged <- merge(x = community_ids, y = edu_clusters, by.x = "ldc.names", by.y = "education.CountryName")
+merged
+```
+
+               ldc.names ldc.membership education.Cluster education.EAGPI_overall
+1             Afghanistan              1                C3                    0.31
+2               Australia              2                C2                    1.12
+3              Azerbaijan              2                C4                    0.93
+4                 Bahrain              3                C2                    1.26
+5                 Belgium              2                C4                    1.05
+6                  Bhutan              4                C1                     0.9
+7  Bosnia and Herzegovina              4                C4                    0.94
+8       Brunei Darussalam              4                C2                    1.14
+9                Bulgaria              2                C2                    1.23
+10                 Canada              2                C4                    1.05
+11                Croatia              2                C2                    1.11
+12                 Cyprus              2                C4                    1.03
+13                Czechia              4                C4                       1
+14                Denmark              2                C2                    1.23
+15                Estonia              2                C2                    1.32
+16                Finland              2                C2                    1.15
+17                 France              2                C4                    1.01
+18                Georgia              2                C4                    1.07
+19                Germany              2                C1                    0.87
+20                 Greece              4                C4                    0.97
+21                Hungary              2                C4                    1.07
+22                Iceland              5                C2                    1.26
+23                  India              6                C1                    0.66
+24              Indonesia              2                C4                    1.01
+25                Ireland              2                C4                    1.07
+26                 Israel              2                C2                    1.13
+27                  Italy              4                C2                    1.15
+28                Lao PDR              7                C1                    0.69
+29                 Latvia              5                C2                    1.26
+30              Lithuania              2                C2                    1.17
+31             Luxembourg              2                C4                    0.94
+32               Malaysia              4                C4                    0.99
+33                  Malta              2                C4                    0.99
+34                Moldova              7                C2                    1.14
+35               Mongolia              2                C2                    1.19
+36            Netherlands              2                C4                    0.96
+37        North Macedonia              2                C4                       1
+38                 Norway              2                C2                    1.21
+39                   Oman              3                C5                    1.54
+40            Philippines              4                C2                    1.19
+41                 Poland              2                C2                    1.22
+42               Portugal              2                C2                    1.23
+43                  Qatar              8                C5                    1.79
+44                Romania              2                C4                    1.01
+45                 Serbia              2                C4                    0.99
+46              Singapore              2                C4                    1.04
+47        Slovak Republic              2                C2                    1.15
+48               Slovenia              2                C2                     1.2
+49                  Spain              2                C2                    1.11
+50                 Sweden              2                C2                     1.2
+51            Switzerland              2                C1                    0.83
+52               Thailand              2                C2                    1.11
+53                Turkiye              8                C1                    0.81
+54   United Arab Emirates              8                C4                       1
+55          United States              2                C4                    1.06
+56             Uzbekistan              8                C1                    0.86
+57               Viet Nam              2                C1                    0.81
+58     West Bank and Gaza              3                C2                    1.12
+
+> print("How many clusters")
+[1] "How many clusters"
+> print(unique(merged$education.Cluster) )
+[1] "C3" "C2" "C4" "C1" "C5"
+
+> print("How many communities")
+[1] "How many communities"
+> print(unique(merged$ldc.membership) )
+[1] 1 2 3 4 5 6 7 8
+
+**Not possible to clearly associate education cluster with the community.**
+
+> table(merged$education.Cluster,merged$ldc.membership)
+    
+      1  2  3  4  5  6  7  8
+  C1  0  3  0  1  0  1  1  2
+  C2  0 17  2  3  2  0  1  0
+  C3  1  0  0  0  0  0  0  0
+  C4  0 17  0  4  0  0  0  1
+  C5  0  0  1  0  0  0  0  1
 
 ## Conclusions
 This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
