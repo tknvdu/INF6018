@@ -224,7 +224,7 @@ The low score suggests that there are multiple pathways of similarity or transit
 * A disconnected component in the network (there are vertices that cannot reach all other vertices in the network)
 It could indicate a methodological issue or maybe a unique network structure.
 
-Identify the reason for NaN value 
+Identify where the NaN value is coming from 
 ```
 > nan_vertices <- which(is.nan(closeness_cent))
 > nan_vertices
