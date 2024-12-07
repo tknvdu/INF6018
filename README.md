@@ -330,9 +330,10 @@ The Leiden algorithm has produced more nuanced communities compared to the previ
 ### Node Attributes and Clustering
 
 We clustered countries using the overall EAGPI in Orange using k-Means. We obtained a list of countries assigned to clusters. Countries in clusters are different based on EAGPI value.
-
+```
 print(names(education))
 [1] "Country Name"  "Cluster"       "Silhouette"    "EAGPI_overall"
+```
 
 ```
 edu_clusters<-data.frame(education$CountryName, education$Cluster, education$EAGPI_overall)
@@ -342,6 +343,7 @@ merged <- merge(x = community_ids, y = edu_clusters, by.x = "ldc.names", by.y = 
 merged
 ```
 
+```
                ldc.names ldc.membership education.Cluster education.EAGPI_overall
 1             Afghanistan              1                C3                    0.31
 2               Australia              2                C2                    1.12
@@ -401,7 +403,9 @@ merged
 56             Uzbekistan              8                C1                    0.86
 57               Viet Nam              2                C1                    0.81
 58     West Bank and Gaza              3                C2                    1.12
+```
 
+```
 print("How many clusters")
 [1] "How many clusters"
 print(unique(merged$education.Cluster) )
@@ -411,9 +415,11 @@ print("How many communities")
 [1] "How many communities"
 print(unique(merged$ldc.membership) )
 [1] 1 2 3 4 5 6 7 8
+```
 
 **Not possible to clearly associate education cluster with the community.**
 
+```
 table(merged$education.Cluster,merged$ldc.membership)
     
       1  2  3  4  5  6  7  8
@@ -422,6 +428,7 @@ table(merged$education.Cluster,merged$ldc.membership)
   C3  1  0  0  0  0  0  0  0
   C4  0 17  0  4  0  0  0  1
   C5  0  0  1  0  0  0  0  1
+```
 
 ## Conclusions
 This is where you present the answers to the the question that you have raised and discuss whether you were able to find the answers that you were looking for.
