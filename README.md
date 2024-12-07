@@ -8,7 +8,7 @@ The gender statistic data used is from the year 2022. The nodes are countries in
 
 1. Which groups of countries are similiar in their gender equality?
 2. Which countries offer gender equality in their economic opportunities, which more and which less?
-3. How do these clusters relate education attainment?
+3. How do these clusters relate to education attainment?
 
 ## Methodology
 
