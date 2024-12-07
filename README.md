@@ -71,9 +71,9 @@ To create meaningful metrics, we'll use female-to-male ratios for most indicator
 **Gender Parity Index (GPI) for Education**
 
 ```math
-$$EAGPI_{secondary} = {{Female Secondary Attainment} \over {Male Secondary Attainment}}$$
-$$EAGPI_{postsec} = {{Female Postsecondary Attainment} \over {Male Postsecondary Attainment}}$$
-$$EAGPI_{bachelor} = {{Female Bachelor's Attainment} \over {Male Bachelor's Attainment}$$
+$$EAGPI_{secondary} = {\text{Female Secondary Attainment (%)} \over \text{Male Secondary Attainment (%)}}$$
+$$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (%)} \over \text{Male Postsecondary Attainment (%)}}$$
+$$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (%)} \over \text{Male Bachelor's Attainment (%)}$$
 ```
 
 **Interpretation**
