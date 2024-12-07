@@ -74,6 +74,7 @@ Note: For GPULF, we use male/female to ensure that lower female unemployment res
 * EOGEI = 100: Perfect gender parity
 * EOGEI < 100: Disparity favoring males
 * EOGEI > 100: Disparity favoring females
+
 Gender parity is considered achieved if 97 ≤ EOGEI ≤ 103.
 
 This composite metric provides a balanced view of gender equality in economic opportunities by considering participation, employment, and unemployment factors. It allows for a more nuanced understanding of gender disparities in the labor market, as it captures both the willingness to work (labor force participation) and the actual employment outcomes.
@@ -264,12 +265,9 @@ IGRAPH clustering edge betweenness, groups: 10, mod: 0.41
 [34]  3  5  2  9  2  3  3  2  4  6  3  3  8  3  7  3  3  3  7  3  3  7  8  8  3  8  2  4
 ```
 
-* Largest Community (Red): This group contains 22 countries, including the United States, Canada, and several European nations. It likely represents developed countries with relatively high gender equality scores across various metrics.
-* Second Largest Community (Green): Comprising 16 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with similar transitional economies and evolving gender equality landscapes.
-* Third Community (Blue): With 12 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural and economic backgrounds that face unique challenges in gender equality.
-* Fourth Community (Yellow): Consisting of 8 countries, this smaller group includes nations like India and Indonesia. It might represent large, developing countries with diverse populations and complex gender equality issues.
-* Smallest Community (Purple): This group of 3 countries (Lao PDR, Moldova, and West Bank and Gaza) may represent nations with unique gender equality profiles that don't fit neatly into the other categories.
-There's a noticeable tendency for countries from similar geographic regions to cluster together, suggesting regional similarities in gender equality progress. The largest community seems to consist of highly developed nations, indicating a correlation between economic opportunities and the gender equality metric. The blue community's composition suggests that cultural and religious factors may play a role in shaping gender equality profiles in some regions.
+![image](https://github.com/user-attachments/assets/0dec3d85-3d26-4569-834d-7412f0d966a3)
+
+There's a noticeable tendency for countries from similar geographic regions to cluster together, suggesting regional similarities in gender equality progress. The largest community seems to consist of highly developed nations, indicating a correlation between economic opportunities and the gender equality metric. Both blue communities' composition suggests that cultural/religious factors may play a role in shaping gender equality profiles in some regions.
 
 #### Community by Label Prop
 ```
@@ -290,12 +288,10 @@ IGRAPH clustering label propagation, groups: 7, mod: 0.42
 [51] 3 3 3 3 3 7 7 3 7 2 4
 ```
 
-* Largest Community (Green): This group contains 25 countries, including many European nations, the United States, and Canada. It likely represents developed countries with high gender equality scores and similar socio-economic conditions.
-* Second Largest Community (Blue): Comprising 19 countries, this group includes several Eastern European, Central Asian, and Middle Eastern nations. It may represent countries with transitional economies and evolving gender equality landscapes.
-* Third Community (Yellow): With 9 countries, this group includes nations like India, Indonesia, and some North African countries. It potentially represents large, developing countries with diverse populations and complex gender equality issues.
-* Smallest Community (Red): Consisting of 8 countries, including some from the Middle East and North Africa. This group might represent nations with unique challenges in gender equality, possibly due to cultural or economic factors.
-Compared to the edge betweenness method, this algorithm produced fewer, larger communities, suggesting more overarching similarities in gender equality patterns.
-The green community appears to group highly developed nations, indicating a strong correlation between economic opportunities and gender equality metric, while the blue and yellow communities seem to represent countries at different stages of the gender equality progress.
+![image](https://github.com/user-attachments/assets/97b9c677-d66e-4df8-8b2f-9ec4d0761faf)
+
+Compared to the edge betweenness method, this algorithm produced fewer, but larger communities, suggesting more overarching similarities in gender equality patterns.
+The green and yellow communities appear to group highly developed or fast developing nations, indicating a strong correlation between economic opportunities and gender equality metric, while the blue community seems to represent countries at different stages of the gender equality progress.
 
 #### Community by Leiden
 ```
@@ -319,13 +315,9 @@ IGRAPH clustering leiden, groups: 8, mod: NA
 [51] 2 2 2 2 2 8 8 2 8 2 3
 ```
 
-* Largest Community (Green): This group contains 18 countries, primarily consisting of Western European nations, the United States, and Canada. It likely represents highly developed countries with strong gender equality measures.
-* Second Largest Community (Yellow): Comprising 14 countries, this group includes several Eastern European and Central Asian nations. It may represent countries with transitional economies and evolving gender equality landscapes.
-* Third Community (Blue): With 11 countries, this group includes several Middle Eastern and North African nations. It potentially represents countries with similar cultural backgrounds facing unique challenges in gender equality.
-* Fourth Community (Purple): Consisting of 9 countries, including some Scandinavian and Baltic states. This group might represent nations with particularly advanced gender equality policies.
-* Fifth Community (Orange): A smaller group of 5 countries, including India and Indonesia. It might represent large, developing countries with diverse populations and complex gender equality issues.
-* Smallest Community (Red): This group of 4 countries includes nations like Lao PDR and Moldova. It may represent countries with unique gender equality profiles that don't fit neatly into other categories.
-The Leiden algorithm has produced more nuanced communities compared to the previous methods, suggesting finer distinctions in gender equality patterns. The green and purple communities seem to represent different levels of advanced gender equality, possibly distinguishing between established and cutting-edge approaches. There's also a noticeable regional clustering, particularly in the yellow and blue communities, indicating strong regional factors in gender equality progress.
+The Leiden algorithm has produced more nuanced communities compared to the previous methods with finer distinctions in gender equality patterns. All the green and purple communities seem to represent different levels of advanced gender equality, possibly distinguishing between established and cutting-edge approaches. There's also a noticeable regional clustering, particularly in the yellow and blue communities, which shows strong regional factors in gender equality progress.
+
+![image](https://github.com/user-attachments/assets/e38a18cf-b502-40e8-84cf-7fc8901e559a)
 
 ### Node Attributes and Clustering
 
@@ -430,7 +422,7 @@ table(merged$education.Cluster,merged$ldc.membership)
   C5  0  0  1  0  0  0  0  1
 ```
 
-### Map education information on the network
+#### Map education information on the network
 ```
 # Map color onto the vertices
 clusters<-merged$education.Cluster 
@@ -476,15 +468,15 @@ Countries with higher EAGPI values tend to occupy more central positions in the 
 ## Conclusions
 1. Which groups of countries are similar in their gender equality?
 
-A large group of developed nations, primarily from Western Europe and North America, consistently clustered together across different community detection methods. This suggests a strong similarity in gender equality measures among economically advanced countries. Eastern European and Central Asian countries often formed a separate community, indicating a distinct gender equality landscape in transitional economies. Middle Eastern and North African nations frequently grouped together, pointing to shared challenges or cultural factors influencing gender equality in this region.Some unexpected groupings emerged, such as the cluster containing Lao PDR, Moldova, and West Bank and Gaza, which may represent countries with unique gender equality profiles that warrant further investigation.
+    A large group of developed nations, primarily from Western Europe and North America, consistently clustered together across different community detection methods. This suggests a strong similarity in gender equality measures among economically advanced countries. Eastern European and Central Asian countries often formed a separate community, indicating a distinct gender equality landscape in transitional economies. Middle Eastern and North African nations frequently grouped together, pointing to shared challenges or cultural factors influencing gender equality in this region.Some unexpected groupings emerged, such as the cluster containing Lao PDR, Moldova, and West Bank and Gaza, which may represent countries with unique gender equality profiles that warrant further investigation.
 
 2. Which countries offer gender equality in their economic opportunities, which more and which less?
 
-Countries like Sweden, Hungary, the United States, Ireland, and Bulgaria showed high eigenvector centrality, suggesting they are central to clusters of nations with similar, likely advanced, gender equality profiles. The presence of countries like Lao PDR, Moldova, and West Bank and Gaza in the top closeness centrality measures indicates that these nations may represent either median cases or interesting outliers in gender equality metrics. Afghanistan consistently appeared as an outlier, often forming its own single-country community, indicating significant challenges in gender equality.
+    Countries like Sweden, Hungary, the United States, Ireland, and Bulgaria showed high eigenvector centrality, suggesting they are central to clusters of nations with similar, likely advanced, gender equality profiles. The presence of countries like Lao PDR, Moldova, and West Bank and Gaza in the top closeness centrality measures indicates that these nations may represent either median cases or interesting outliers in gender equality metrics. Afghanistan consistently appeared as an outlier, often forming its own single-country community, indicating significant challenges in gender equality.
 
 3. How do these clusters relate to education attainment?
 
-There is no clear one-to-one correspondence between the communities identified based on economic gender equality metrics and the clusters formed based on the Educational Attainment Gender Parity Index (EAGPI). However, the visualization of EAGPI data on the network graph shows that countries with higher EAGPI values (represented by larger node sizes) tend to be more centrally located in the network, suggesting a positive relationship between educational gender parity and overall gender equality in economic opportunities. The diversity of EAGPI values within communities indicates that countries with similar economic gender equality profiles may still have varying levels of educational gender parity.
+    There is no clear one-to-one correspondence between the communities identified based on economic gender equality metrics and the clusters formed based on the Educational Attainment Gender Parity Index (EAGPI). However, the visualization of EAGPI data on the network graph shows that countries with higher EAGPI values (represented by larger node sizes) tend to be more centrally located in the network, suggesting a positive relationship between educational gender parity and overall gender equality in economic opportunities. The diversity of EAGPI values within communities indicates that countries with similar economic gender equality profiles may still have varying levels of educational gender parity.
 
 ## References
 * Igraph reference.  https://cran.r-project.org/web/packages/igraph/vignettes/igraph.html
