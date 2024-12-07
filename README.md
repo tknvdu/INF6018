@@ -92,6 +92,7 @@ $$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (\%)} \over \text{Male 
 * GPI = 1: Perfect gender parity
 * GPI < 1: Disparity in favor of males
 * GPI > 1: Disparity in favor of females
+
 To check for gender equality, we use these thresholds:
 * 0.97 ≤ GPI ≤ 1.03: Gender parity achieved
 * GPI < 0.97: Disparity favoring males
