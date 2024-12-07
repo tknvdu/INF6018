@@ -54,13 +54,43 @@ The questions asked are:
 
 ### Breaking Down the Analysis
 For RQ1, we'll:
-Estimate the relationship between gender equality in education and economic opportunities for each country individually
+Estimate the relationship of gender equality in economic opportunities for each country individually
 Develop composite metrics for education equality and economic opportunity equality
-Use statistical methods (e.g., Pearson correlation, regression analysis) to quantify the relationship between these composite metrics
-Compare countries based on the strength and direction of these relationships
+Compare countries based on the strength and direction of this relationship
 
 ### Meaningful Metrics
 To create meaningful metrics, we'll use female-to-male ratios for most indicators to capture relative gender differences
+
+#### Economic Opportunities Gender Equality Index (EOGEI)
+To create a metric for gender equality in economic opportunities using labor force participation and employment indicators, we can create a composite index:
+
+**Gender Parity in Labor Force Participation (GPLFP)**
+```math
+$$GPLFP = {\text{Female Labor Force Participation Rate} \over \text{Male Labor Force Participation Rate}} * 100$$
+```
+
+**Gender Parity in Employment-to-Population Ratio (GPETP)**
+```math
+$$GPLFP = {\text{Female Employment-to-Population Ratio} \over \text{Male Employment-to-Population Ratio}} * 100$$
+```
+
+**Gender Parity in Unemployment Labor Force Rate (GPULF)**
+```math
+$$GPLFP = {\text{Male Unemployment Rate} \over \text{Female Unemployment Rate}} * 100$$
+```
+
+Note: For GPULF, we use male/female to ensure that lower female unemployment results in a higher score.
+
+**Interpretation**
+* EOGEI = 100: Perfect gender parity
+* EOGEI < 100: Disparity favoring males
+* EOGEI > 100: Disparity favoring females
+Gender parity is considered achieved if 97 ≤ EOGEI ≤ 103.
+
+This composite metric provides a balanced view of gender equality in economic opportunities by considering participation, employment, and unemployment factors. It allows for a more nuanced understanding of gender disparities in the labor market, as it captures both the willingness to work (labor force participation) and the actual employment outcomes.
+Using both labor force participation and employment indicators captures different aspects of economic opportunities:
+1. Labor force participation shows the proportion of the working-age population that engages in the labor market, either by working or looking for work.
+2. Employment indicators provide information on the actual success in securing employment and the quality of labor market outcomes.
 
 #### Gender Parity Index (GPI) for Education
 
@@ -71,9 +101,9 @@ To create meaningful metrics, we'll use female-to-male ratios for most indicator
 **Gender Parity Index (GPI) for Education**
 
 ```math
-$$EAGPI_{secondary} = {\text{Female Secondary Attainment (%)} \over \text{Male Secondary Attainment (%)}}$$
-$$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (%)} \over \text{Male Postsecondary Attainment (%)}}$$
-$$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (%)} \over \text{Male Bachelor's Attainment (%)}}$$
+$$EAGPI_{secondary} = {\text{Female Secondary Attainment (\%)} \over \text{Male Secondary Attainment (\%)}}$$
+$$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (\%)} \over \text{Male Postsecondary Attainment (\%)}}$$
+$$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (\%)} \over \text{Male Bachelor's Attainment (\%)}}$$
 ```
 
 **Interpretation**
