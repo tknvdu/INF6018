@@ -75,36 +75,12 @@ Note: For GPULF, we use male/female to ensure that lower female unemployment res
 * EOGEI < 100: Disparity favoring males
 * EOGEI > 100: Disparity favoring females
 
-Gender parity is considered achieved if 97 ≤ EOGEI ≤ 103.
+Gender parity is considered achieved if 93 ≤ EOGEI ≤ 107.
 
 This composite metric provides a balanced view of gender equality in economic opportunities by considering participation, employment, and unemployment factors. It allows for a more nuanced understanding of gender disparities in the labor market, as it captures both the willingness to work (labor force participation) and the actual employment outcomes.
 Using both labor force participation and employment indicators captures different aspects of economic opportunities:
 1. Labor force participation shows the proportion of the working-age population that engages in the labor market, either by working or looking for work.
 2. Employment indicators provide information on the actual success in securing employment and the quality of labor market outcomes.
-
-### Gender Parity Index (GPI) for Education
-```math
-$$EAGPI_{secondary} = {\text{Female Secondary Attainment (\%)} \over \text{Male Secondary Attainment (\%)}}$$
-$$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (\%)} \over \text{Male Postsecondary Attainment (\%)}}$$
-$$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (\%)} \over \text{Male Bachelor's Attainment (\%)}}$$
-```
-
-**Interpretation**
-* GPI = 1: Perfect gender parity
-* GPI < 1: Disparity in favor of males
-* GPI > 1: Disparity in favor of females
-
-To check for gender equality, we use these thresholds:
-* 0.93 ≤ GPI ≤ 1.07: Gender parity achieved
-* GPI < 0.93: Disparity favoring males
-* GPI > 1.07: Disparity favoring females
-
-**Overall Educational Attainment GPI**
-To get a more comprehensive view of educational attainment across genders, we calculate an overall Educational Attainment GPI by averaging the three GPIs:
-
-```math
-$$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 3}$$
-```
 
 ```
 # Write edges
@@ -134,6 +110,30 @@ By using this approach countries with very similar EOGEI values will have edge w
 * Countries above 107 can be easily identified as leaders in gender equality, while those below 93 are lagging behind.
 * Countries within the thresholds are of particular interest, as they represent transitional states in gender equality progress.
 * Identify regions or groups of countries with similar gender equality levels more easily.
+
+### Gender Parity Index (GPI) for Education
+```math
+$$EAGPI_{secondary} = {\text{Female Secondary Attainment (\%)} \over \text{Male Secondary Attainment (\%)}}$$
+$$EAGPI_{postsec} = {\text{Female Postsecondary Attainment (\%)} \over \text{Male Postsecondary Attainment (\%)}}$$
+$$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (\%)} \over \text{Male Bachelor's Attainment (\%)}}$$
+```
+
+**Interpretation**
+* GPI = 1: Perfect gender parity
+* GPI < 1: Disparity in favor of males
+* GPI > 1: Disparity in favor of females
+
+To check for gender equality, we use these thresholds:
+* 0.93 ≤ GPI ≤ 1.07: Gender parity achieved
+* GPI < 0.93: Disparity favoring males
+* GPI > 1.07: Disparity favoring females
+
+**Overall Educational Attainment GPI**
+To get a more comprehensive view of educational attainment across genders, we calculate an overall Educational Attainment GPI by averaging the three GPIs:
+
+```math
+$$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}} \over 3}$$
+```
 
 ## Results
 
