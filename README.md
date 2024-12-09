@@ -2,7 +2,7 @@
 
 ## Introduction 
 This project aims to analyze the relationships between gender equality, education, and economic opportunities/development across countries in Europe, Asia, Middle East, North Africa and North America. The study will focus on 61 countries, examining a specific gender equality metric and their correlation with education.
-The gender statistic data used is from the year 2022. The nodes are countries in which the gender statistics for Educational Attainment, Labor For Participation, (Un-)Employment Rates is available in the year 2022. The edges connect countries between their similiarity in the chosen gender equality metric. Additionally, data on each country is used to show the educational attainment after the threshold at least completed lower-secondary. 
+The gender statistic data used is from https://databank.worldbank.org/source/gender-statistics and the year 2022. The nodes are countries in which the gender statistics for Educational Attainment, Labor For Participation, (Un-)Employment Rates is available in the year 2022. The edges connect countries between their similiarity in the chosen gender equality metric. Additionally, data on each country is used to show the educational attainment after the threshold at least completed lower-secondary. 
 
 **Research Questions:**
 
@@ -55,26 +55,27 @@ To create a metric for gender equality in economic opportunities using labor for
 
 **Gender Parity in Labor Force Participation (GPLFP)**
 ```math
-$$GPLFP = {\text{Female Labor Force Participation Rate} \over \text{Male Labor Force Participation Rate}} * 100$$
+$$GPLFP = {\text{Female Labor Force Participation Rate (\%)} \over \text{Male Labor Force Participation Rate (\%)}} * 100$$
 ```
 
 **Gender Parity in Employment-to-Population Ratio (GPETP)**
 ```math
-$$GPETP = {\text{Female Employment-to-Population Ratio} \over \text{Male Employment-to-Population Ratio}} * 100$$
+$$GPETP = {\text{Female Employment-to-Population Ratio (\%)} \over \text{Male Employment-to-Population Ratio (\%)}} * 100$$
 ```
 
 **Gender Parity in Unemployment Labor Force Rate (GPULF)**
 ```math
-$$GPULF = {\text{Male Unemployment Rate} \over \text{Female Unemployment Rate}} * 100$$
+$$GPULF = {\text{Male Unemployment Rate (\%)} \over \text{Female Unemployment Rate (\%)}} * 100$$
 ```
 
 Note: For GPULF, we use male/female to ensure that lower female unemployment results in a higher score.
 
 **Economic Opportunities Gender Equality Index (EOGEI)**
+
 We calculate the Economic Opportunities GEI by averaging the three GPIs:
 
 ```math
-$$EOGEI_{overall} = {{GPLFP_{secondary}} + {GPETP_{postsec}} + {GPULF_{bachelor}} \over 3}$$
+$$EOGEI_{overall} = {{GPLFP} + {GPETP} + {GPULF} \over 3}$$
 ```
 
 **Interpretation**
@@ -88,6 +89,8 @@ This composite metric provides a balanced view of gender equality in economic op
 Using both labor force participation and employment indicators captures different aspects of economic opportunities:
 1. Labor force participation shows the proportion of the working-age population that engages in the labor market, either by working or looking for work.
 2. Employment indicators provide information on the actual success in securing employment and the quality of labor market outcomes.
+
+How to calculate the connections/links?
 
 ```
 # Write edges
@@ -143,6 +146,10 @@ $$EAGPI_{overall} = {{EAGPI_{secondary}} + {EAGPI_{postsec}} + {EAGPI_{bachelor}
 ```
 
 ## Results
+
+### Plotted Network
+
+![image](https://github.com/user-attachments/assets/e74d92b9-371d-4ba5-b6a0-0637377b335a)
 
 ### Network Parameters of Node Centrality
 Excerpt from RStudio Console:
@@ -473,7 +480,12 @@ plot(ldc,
 ![image](https://github.com/user-attachments/assets/9b2e0450-9dd3-4494-968e-478d2161e923)
 
 The communities (represented by different colors in the network) often contain countries from various educational attainment clusters (indicated by node colors and sizes). This suggests that countries with similar gender equality profiles in economic opportunities may have diverse levels of educational gender parity.
-Countries with higher EAGPI values tend to occupy more central positions in the network, which could again imply a positive correlation between educational gender parity and overall gender equality in economic opportunities. There are also visible regional clusters in the network, particularly for European and North American countries (often grouped together) and Middle Eastern/North African nations (forming their own cluster). However, these regional groupings are not strictly aligned with educational attainment clusters, showing that regions or shared cultural backgrounds do not necessarily translate to similar educational gender parity levels. Afghanistan appears as an isolated node, suggesting significant differences in both economic and educational gender equality compared to other countries. Some countries, like Qatar and Oman, show high EAGPI values but are positioned differently in the network, indicating unique combinations of educational and economic gender equality. A large cluster of developed nations (mostly European countries, the US, and Canada) shows a mix of high EAGPI values (large nodes) and varying educational cluster assignments (different node colors), underlining that even among economically advanced countries, there are nuances in educational gender parity. Countries from Eastern Europe and Central Asia often form a distinct community but show varied educational attainment levels.
+
+Countries with higher EAGPI values tend to occupy more central positions in the network, which could again imply a positive correlation between educational gender parity and overall gender equality in economic opportunities. There are also visible regional clusters in the network, particularly for European and North American countries (often grouped together) and Middle Eastern/North African nations (forming their own cluster).
+
+However, these regional groupings are not strictly aligned with educational attainment clusters, showing that regions or shared cultural backgrounds do not necessarily translate to similar educational gender parity levels. Afghanistan appears as an isolated node, suggesting significant differences in both economic and educational gender equality compared to other countries. Some countries, like Qatar and Oman, show high EAGPI values but are positioned differently in the network, indicating unique combinations of educational and economic gender equality.
+
+A large cluster of developed nations (mostly European countries, the US, and Canada) shows a mix of high EAGPI values (large nodes) and varying educational cluster assignments (different node colors), underlining that even among economically advanced countries, there are nuances in educational gender parity. Countries from Eastern Europe and Central Asia often form a distinct community but show varied educational attainment levels.
 
 ## Conclusions
 1. Which groups of countries are similar in their gender equality?
