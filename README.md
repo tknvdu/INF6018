@@ -117,7 +117,7 @@ for i in range(len(df_columns)):
 By using this approach countries with very similar EOGEI values will have edge weights closer to 1, representing a denser or stronger connection and instead of discrete categories, this provides a continuous scale of relationships between countries. So, the weight directly represents how similar two countries are in terms of their EOGEI values. A weight of 0.9, for example, indicates a very strong similarity, while a weight of 0.1 suggests the countries are at the edge of being considered connected at all.
 
 **Implications**
-* Countries above 107 can be easily identified as leaders in gender equality, while those below 93 are lagging behind.
+* Countries above 109 can be identified as leaders in gender equality, while those below 93 are lagging behind.
 * Countries within the thresholds are of particular interest, as they represent transitional states in gender equality progress.
 * Identify regions or groups of countries with similar gender equality levels more easily.
 
