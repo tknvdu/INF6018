@@ -60,15 +60,22 @@ $$GPLFP = {\text{Female Labor Force Participation Rate} \over \text{Male Labor F
 
 **Gender Parity in Employment-to-Population Ratio (GPETP)**
 ```math
-$$GPLFP = {\text{Female Employment-to-Population Ratio} \over \text{Male Employment-to-Population Ratio}} * 100$$
+$$GPETP = {\text{Female Employment-to-Population Ratio} \over \text{Male Employment-to-Population Ratio}} * 100$$
 ```
 
 **Gender Parity in Unemployment Labor Force Rate (GPULF)**
 ```math
-$$GPLFP = {\text{Male Unemployment Rate} \over \text{Female Unemployment Rate}} * 100$$
+$$GPULF = {\text{Male Unemployment Rate} \over \text{Female Unemployment Rate}} * 100$$
 ```
 
 Note: For GPULF, we use male/female to ensure that lower female unemployment results in a higher score.
+
+**Economic Opportunities Gender Equality Index (EOGEI)**
+We calculate the Economic Opportunities GEI by averaging the three GPIs:
+
+```math
+$$EOGEI_{overall} = {{GPLFP_{secondary}} + {GPETP_{postsec}} + {GPULF_{bachelor}} \over 3}$$
+```
 
 **Interpretation**
 * EOGEI = 100: Perfect gender parity
