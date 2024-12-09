@@ -163,6 +163,7 @@ The top countries by degree centrality are:
 * Australia
 * Denmark
 * Malta
+
 These countries have the highest number of connections/edges to other countries in the network, indicating that they have similar gender equality metrics to many other nations. This suggests that these countries may represent "average" or "typical" cases in terms of gender equality measures across countries.
 
 ### Betweenness Centrality
@@ -172,6 +173,7 @@ The top countries by betweenness centrality are:
 * Slovenia
 * India
 * Croatia
+
 These countries act as important bridges or connectors in the network. They likely represent transitional states between different clusters of countries with varying levels of gender equality. Their position suggests they may be important in understanding how gender equality metrics transition between different groups of countries.
 
 ### Closeness Centrality
@@ -181,6 +183,7 @@ The top countries by closeness centrality are:
 * West Bank and Gaza
 * Bahrain
 * Iran, Islamic Rep.
+
 These countries are, on average, closest to all other countries in the network in terms of their gender equality metrics. This suggests that they may represent either "median" or "outlier" cases in the study, potentially offering insights into the typical gender equality situations in their diverse regions.
 
 ### Eigenvector Centrality
