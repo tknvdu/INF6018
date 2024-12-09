@@ -95,9 +95,9 @@ $$EAGPI_{bachelor} = {\text{Female Bachelor's Attainment (\%)} \over \text{Male 
 * GPI > 1: Disparity in favor of females
 
 To check for gender equality, we use these thresholds:
-* 0.97 ≤ GPI ≤ 1.03: Gender parity achieved
-* GPI < 0.97: Disparity favoring males
-* GPI > 1.03: Disparity favoring females
+* 0.93 ≤ GPI ≤ 1.07: Gender parity achieved
+* GPI < 0.93: Disparity favoring males
+* GPI > 1.07: Disparity favoring females
 
 **Overall Educational Attainment GPI**
 To get a more comprehensive view of educational attainment across genders, we calculate an overall Educational Attainment GPI by averaging the three GPIs:
